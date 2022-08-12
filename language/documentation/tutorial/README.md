@@ -440,7 +440,7 @@ borrow_global<Balance>(owner).coin.value
 
 This function withdraws tokens from `from`'s balance and deposits the tokens into `to`s balance. We take a closer look
 at `withdraw` helper function:
-```
+```move
 fun withdraw(addr: address, amount: u64) : Coin acquires Balance {
     let balance = balance_of(addr);
     assert!(balance >= amount, EINSUFFICIENT_BALANCE);
@@ -526,7 +526,7 @@ struct Balance<phantom CoinType> has key {
 ```
 
 We also add type parameters to our methods in the same manner. For example, `withdraw` becomes the following:
-```
+```move
 fun withdraw<CoinType>(addr: address, amount: u64) : Coin<CoinType> acquires Balance {
     let balance = balance_of<CoinType>(addr);
     assert!(balance >= amount, EINSUFFICIENT_BALANCE);
