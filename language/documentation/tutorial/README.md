@@ -515,7 +515,7 @@ building block for library code. In this section, we are going to make our simpl
 serve as a library module that can be used by other user modules.
 
 First, we add type parameters to our data structs:
-```
+```move
 struct Coin<phantom CoinType> has store {
     value: u64
 }
